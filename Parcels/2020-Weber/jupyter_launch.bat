@@ -1,1 +1,2 @@
-python -m notebook
+remm python -m notebook
+jupyter-lab
