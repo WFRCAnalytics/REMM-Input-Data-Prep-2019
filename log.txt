@@ -1,0 +1,28 @@
+4-11-2022
+- Created initial base year h5 input
+- set parcel_id_REMM as parcel_id, and used this column as the index for most tables
+- for travel data file, used from_zone_id and to_zone_id as indices
+- we used some randomly generated data to fill the null values in certain columns e.g. (year_built, non residential price, bldg sqft)
+- we used a parcel equivalency table and/or spatial join to link new data with old data to avoid having to recalculate proximity attributes for now
+- we switched the coordinate system of the parcels from utah state plane (sq ft) to utm zone 12 nad 1983 (sq meters)
+
+4-26-2022
+- New base year dataset
+	- added missing square footage to education buildings
+	- deleted a many stubborn road parcels that the thinness ratio formula couldn't catch
+	- filled empty residential units and jobs with 0
+	- updated zoning baseline, used zoning surface (dua and far) to calculate some reasonable values for missing buildings
+	- awaiting pop sim rerun (consider numbering the residential buildings first so that the ids stay the same)
+- Old base year data
+	- applied new zoning baseline to old parcels
+	- replaced max dua and max far values of 0, with np.nan (empty)
+	- still using some randomly generated data
+	- set type 1 & 2 to f if no max dua
+	- set type 3-8 to f if no max far
+	- previously utah state plane was used so shape_area attribute was in square feet, shape_area was then used to calculate parcel_acres by REMM
+	- we converted shape_area from square_meters to square_feet for now, but we will want to make remm use square meters later
+	
+4-28-2022
+- Old base year data
+	- shape_area from the 2015 parcels was improperly joined to the new parcels, this was corrected
+	- the parcel_acres attribute should just be read in and not calculated from a shape_area from arcgis
