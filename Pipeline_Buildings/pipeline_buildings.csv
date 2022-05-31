@@ -1,0 +1,5 @@
+building_type_id,non_residential_sqft,note,parcel_id,residential_units,stories,unit_price_non_residential,year_built,res_price_per_sqft,residential_price,non_residential_price,job_spaces,building_sqft,DEVTYPE
+5,500000,pipeline,36555,0,28,0,2020,0,0,0,400,500000,redevelop
+2,0,pipeline,65044,100,8,0,2022,0,0,0,0,80000,develop
+0,0,pipeline,7555,0,0,0,2021,0,0,0,0,0,demolish
+7,20000,pipeline,65044,50,8,0,2022,0,0,0,50,100000,develop

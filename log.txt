@@ -5,6 +5,7 @@
 - we used some randomly generated data to fill the null values in certain columns e.g. (year_built, non residential price, bldg sqft)
 - we used a parcel equivalency table and/or spatial join to link new data with old data to avoid having to recalculate proximity attributes for now
 - we switched the coordinate system of the parcels from utah state plane (sq ft) to utm zone 12 nad 1983 (sq meters)
+- we did something with parent_parcel attribute, but I don't remember... Is it necessary?
 
 4-26-2022
 - New base year dataset
@@ -21,6 +22,9 @@
 	- set type 3-8 to f if no max far
 	- previously utah state plane was used so shape_area attribute was in square feet, shape_area was then used to calculate parcel_acres by REMM
 	- we converted shape_area from square_meters to square_feet for now, but we will want to make remm use square meters later
+	- created a new version of osm.h5 called multi_modal_network.h5
+		- used mmn to create nodes and edges
+		- weight (distance) is calculated in meters
 	
 4-28-2022
 - Old base year data
